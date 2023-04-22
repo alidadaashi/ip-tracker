@@ -1,0 +1,59 @@
+@mixin placeholder {
+    &::-webkit-input-placeholder {@content}
+    &:-moz-placeholder           {@content}
+    &::-moz-placeholder          {@content}
+    &:-ms-input-placeholder      {@content}  
+}
+.form{
+    &-container{
+        min-height: 280px;
+        background-image: url(../../assets/images/pattern-bg.png);
+        background-size: cover;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 1.5rem;
+        & form{
+            display: flex;
+        }
+    }
+    &-title{
+        color: #FFF;
+        margin-bottom: 1.5rem;
+    }
+    &-input{
+        width: 555px;
+        height: 3.625rem;
+        padding: 0.5rem 1rem;
+        border-radius: .5rem 0 0 0.5rem;
+        border: none;
+        font-size: 1.15rem;
+        font-weight: 100;
+        @include placeholder {
+            font-weight: 100;
+        }
+        &:focus, &:focus-visible{
+            outline: none;
+        }
+    }
+    &-button{
+        width: 3.625rem;
+        height: 3.625rem;
+        background-image: url(../../assets/images/icon-arrow.svg);
+        background-color: #000;
+        background-repeat: no-repeat;
+        background-position: center;
+        border-radius: 0 0.5rem 0.5rem 0;
+        border: none;
+        &:hover{
+            cursor: pointer;
+        }
+        &:disabled{
+            background-color: grey;
+            &:hover{
+                cursor: not-allowed;
+            }
+        }
+    }
+}
