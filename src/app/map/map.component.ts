@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, SimpleChanges } from '@angular/core';
 import * as Leaflet from 'leaflet';
+import { Result } from '../common/models/result';
 Leaflet.Icon.Default.imagePath = 'assets/images/';
 const myIcon = Leaflet.icon({
   iconUrl: 'assets/images/icon-location.svg',
@@ -17,7 +18,26 @@ const myIcon = Leaflet.icon({
   styleUrls: ['./map.component.scss']
 })
 export class MapComponent {
-
+  @Input() response!:Result;
+  isRepeated(ip:string){
+    return !!sessionStorage.getItem(ip);
+  }
+  ngOnChanges(changes: SimpleChanges) {
+    if(!changes['response'].firstChange){
+      // Save IP address in session storage if it is not saved yet.
+      if(!this.isRepeated(this.response.ip)){
+        sessionStorage.setItem(this.response.ip, JSON.stringify(this.response))
+        const marker = this.generateMarker({
+          position: { lat: this.response.location.lat, lng: this.response.location.lng },
+          draggable: false
+        });
+        marker.addTo(this.map).bindPopup(`<b>${this.response.location.lat},  ${this.response.location.lng}</b>`);
+      }
+      
+      this.map.panTo({ lat: this.response.location.lat, lng: this.response.location.lng });
+    }
+    
+}
   map!: Leaflet.Map;
   markers: Leaflet.Marker[] = [];
   options = {
