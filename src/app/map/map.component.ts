@@ -1,6 +1,15 @@
 import { Component } from '@angular/core';
 import * as Leaflet from 'leaflet';
 Leaflet.Icon.Default.imagePath = 'assets/images/';
+const myIcon = Leaflet.icon({
+  iconUrl: 'assets/images/icon-location.svg',
+  iconSize: [46, 56],
+  // iconAnchor: [16, 32],
+  popupAnchor: [0, -32],
+  // shadowUrl: 'path/to/custom-icon-shadow.svg',
+  // shadowSize: [41, 41],
+  shadowAnchor: [12, 41]
+});
 
 @Component({
   selector: 'app-map',
@@ -24,7 +33,7 @@ export class MapComponent {
     const initialMarkers = [
       {
         position: { lat: 28.625485, lng: 79.821091 },
-        draggable: true
+        draggable: true,
       },
       {
         position: { lat: 28.625293, lng: 79.817926 },
@@ -45,7 +54,7 @@ export class MapComponent {
   }
 
   generateMarker(data: any, index: number) {
-    return Leaflet.marker(data.position, { draggable: data.draggable })
+    return Leaflet.marker(data.position, { draggable: data.draggable, icon:myIcon })
       .on('click', (event) => this.markerClicked(event, index))
       .on('dragend', (event) => this.markerDragEnd(event, index));
   }
