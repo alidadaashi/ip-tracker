@@ -30,33 +30,21 @@ export class MapComponent {
   }
 
   initMarkers() {
-    const initialMarkers = [
-      {
+    const initialMarker = {
         position: { lat: 28.625485, lng: 79.821091 },
-        draggable: true,
-      },
-      {
-        position: { lat: 28.625293, lng: 79.817926 },
-        draggable: false
-      },
-      {
-        position: { lat: 28.625182, lng: 79.81464 },
-        draggable: true
-      }
-    ];
-    for (let index = 0; index < initialMarkers.length; index++) {
-      const data = initialMarkers[index];
-      const marker = this.generateMarker(data, index);
-      marker.addTo(this.map).bindPopup(`<b>${data.position.lat},  ${data.position.lng}</b>`);
-      this.map.panTo(data.position);
+      };
+
+      const marker = this.generateMarker(initialMarker);
+      marker.addTo(this.map).bindPopup(`<b>${initialMarker.position.lat},  ${initialMarker.position.lng}</b>`);
+      this.map.panTo(initialMarker.position);
       this.markers.push(marker)
-    }
+    
   }
 
-  generateMarker(data: any, index: number) {
-    return Leaflet.marker(data.position, { draggable: data.draggable, icon:myIcon })
-      .on('click', (event) => this.markerClicked(event, index))
-      .on('dragend', (event) => this.markerDragEnd(event, index));
+  generateMarker(data: any) {
+    return Leaflet.marker(data.position, { draggable: true, icon:myIcon })
+      .on('click', (event) => this.markerClicked(event))
+      .on('dragend', (event) => this.markerDragEnd(event));
   }
 
   onMapReady($event: Leaflet.Map) {
@@ -68,11 +56,11 @@ export class MapComponent {
     console.log($event.latlng.lat, $event.latlng.lng);
   }
 
-  markerClicked($event: any, index: number) {
+  markerClicked($event: any) {
     console.log($event.latlng.lat, $event.latlng.lng);
   }
 
-  markerDragEnd($event: any, index: number) {
+  markerDragEnd($event: any) {
     console.log($event.target.getLatLng());
   } 
 }
