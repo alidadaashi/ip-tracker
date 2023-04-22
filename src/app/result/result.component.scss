@@ -1,0 +1,42 @@
+.result{
+    &-container{
+        display: flex;
+        max-width: 1440px;
+        padding: 2rem 0;
+        background-color: #FFF;
+        margin: -3rem auto 0;
+        width: 920px;
+        border-radius: 1rem;
+        z-index: 10;
+    position: relative;
+    }
+    &-item{
+        padding: 0 0 0 2rem;
+        flex-basis: 0;
+    flex-grow: 1;
+    max-width: 100%;
+        &:last-child{
+            padding-right: 2rem;
+            .result-text::after{
+                border-right: none;
+            }
+        }
+    }
+    &-label{
+        color: #A2A2A2;
+        font-size: .75rem;
+        margin-bottom: 0.5rem;
+        text-transform: uppercase;
+    }
+    &-text{
+        font-size: 1.5rem;
+        display: flex;
+        justify-content: space-between;
+        &::after{
+            content: '';
+            border-right: 1px solid #CCC;
+            height: 50px;
+            margin-top: -16px;
+        }
+    }
+}
