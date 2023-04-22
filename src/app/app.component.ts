@@ -23,7 +23,6 @@ export class AppComponent implements OnInit {
       "timezone": "UTC-05:00"
     }
   }
-  isRepetitive:boolean=false;
   constructor(private resultService: ResultService){}
   ngOnInit(): void {
     sessionStorage.clear();
@@ -32,11 +31,9 @@ export class AppComponent implements OnInit {
     let localData:string | null = localStorage.getItem(inputValue);
     if(localData !== null){
       this.response = JSON.parse(localData);
-      this.isRepetitive=true;
     }else{
       this.resultService.find(inputValue).subscribe((res:any) => {
         this.response=res;
-        this.isRepetitive=false;
         this.saveDataToLocalStorage(res)
       })
     }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import * as Leaflet from 'leaflet';
 Leaflet.Icon.Default.imagePath = 'assets/images/';
 const myIcon = Leaflet.icon({
@@ -17,6 +17,7 @@ const myIcon = Leaflet.icon({
   styleUrls: ['./map.component.scss']
 })
 export class MapComponent {
+
   map!: Leaflet.Map;
   markers: Leaflet.Marker[] = [];
   options = {
