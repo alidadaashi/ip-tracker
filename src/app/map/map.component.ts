@@ -63,7 +63,7 @@ export class MapComponent {
   }
 
   generateMarker(data: any) {
-    return Leaflet.marker(data.position, { draggable: true, icon:myIcon })
+    return Leaflet.marker(data.position, { draggable: false, icon:myIcon })
       .on('click', (event) => this.markerClicked(event))
       .on('dragend', (event) => this.markerDragEnd(event));
   }
