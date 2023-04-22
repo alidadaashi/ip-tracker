@@ -13,13 +13,13 @@ export class AppComponent implements OnInit {
     ip: "8.8.8.8",
     isp: "SpaceX - Starlink",
     location: {
-      "city": "",
+      "city": "NY",
       "country": "",
       "geonameId": 0,
       "lat": 37.38,
       "lng": -122,
-      "postalCode": "",
-      "region": "",
+      "postalCode": "1100",
+      "region": "Brooklyn",
       "timezone": "UTC-05:00"
     }
   }

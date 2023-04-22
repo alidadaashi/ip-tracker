@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Result } from '../common/models/result';
 
 @Component({
   selector: 'app-result',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./result.component.scss']
 })
 export class ResultComponent {
-
+  @Input() response!:Result; // Should be checked later
 }

@@ -1,18 +1,18 @@
 <div class="result-container">
     <div class="result-item">
         <div class="result-label"> IP ADDRESS </div>
-        <p class="result-text"> 192.212.174.101 </p>
+        <p class="result-text"> {{response.ip}} </p>
     </div>
     <div class="result-item">
         <div class="result-label"> Location </div>
-        <p class="result-text">Brooklin, NY, 1001</p>
+        <p class="result-text">{{response.location.city}}, {{response.location.region}}, {{response.location.postalCode}} </p>
     </div>
     <div class="result-item">
         <div class="result-label"> Timezone </div>
-        <p class="result-text"> UTC-05:00 </p>
+        <p class="result-text"> UTC{{response.location.timezone}}</p>
     </div>
     <div class="result-item">
         <div class="result-label"> ISP </div>
-        <p class="result-text"> SpaceX- Starlink </p>
+        <p class="result-text"> {{response.isp}} </p>
     </div>
 </div>
