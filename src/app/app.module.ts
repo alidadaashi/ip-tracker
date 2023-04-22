@@ -6,6 +6,8 @@ import { InputComponent } from './input/input.component';
 import { ResultComponent } from './result/result.component';
 import { MapComponent } from './map/map.component';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
   ],
   imports: [
     BrowserModule,
-    LeafletModule
+    LeafletModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

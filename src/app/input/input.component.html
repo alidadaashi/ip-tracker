@@ -1,8 +1,8 @@
 <div class="form-container">
     <h1 class="form-title">IP Address Tracker</h1>
-    <form>
-        <input name="ipAddress" class="form-input" required type="text" placeholder="Search for any IP address or domain" pattern="^([01]?\d\d?|2[0-4]\d|25[0-5])\.([01]?\d\d?|2[0-4]\d|25[0-5])\.([01]?\d\d?|2[0-4]\d|25[0-5])\.([01]?\d\d?|2[0-4]\d|25[0-5])$"/>
-        <button type="submit" class="form-button"></button>
+    <form #form="ngForm" (submit)="check.emit(inputValue)">
+        <input [(ngModel)]="inputValue" name="ipAddress" class="form-input" required type="text" placeholder="Search for any IP address or domain" pattern="^([01]?\d\d?|2[0-4]\d|25[0-5])\.([01]?\d\d?|2[0-4]\d|25[0-5])\.([01]?\d\d?|2[0-4]\d|25[0-5])\.([01]?\d\d?|2[0-4]\d|25[0-5])$"/>
+        <button type="submit" [disabled]="form.invalid" class="form-button"></button>
     </form>
     <!-- <div>{{form.value | json}}</div>
     <div>{{form.valid | json}}</div> -->
