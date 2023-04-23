@@ -1,3 +1,4 @@
+@import "../../responsive";
 .result{
     &-container{
         display: flex;
@@ -5,22 +6,45 @@
         padding: 2rem 0;
         background-color: #FFF;
         margin: -3rem auto 0;
-        width: 920px;
         border-radius: 1rem;
         z-index: 10;
-    position: relative;
+        position: absolute;
+        min-width: 600px;
+        @include mobile{
+            flex-direction: column;
+            margin-top: -8rem;
+            padding: 1rem 0;
+            width: 90vw;
+            min-width: 300px;
+        }
     }
     &-item{
-        padding: 0 0 0 2rem;
+        padding: 0 1rem 0 2rem;
         flex-basis: 0;
-    flex-grow: 1;
-    max-width: 100%;
-        &:last-child{
-            padding-right: 2rem;
-            .result-text::after{
-                border-right: none;
+        flex-grow: 1;
+        max-width: 100%;
+        position: relative;
+        &::after{
+            content: '';
+            border-right: 1px solid #CCC;
+            height: 50px;
+            position: absolute;
+            right: 0;
+            top: 0.5rem;
             }
-        }
+            &:last-child{
+                @include mobile{
+                    margin-bottom: 0rem;
+                }    
+                &::after{
+                    padding-right: 2rem;
+                    border-right: none;
+                }
+            } 
+        @include mobile{
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }       
     }
     &-label{
         color: #A2A2A2;
@@ -32,11 +56,13 @@
         font-size: 1.5rem;
         display: flex;
         justify-content: space-between;
-        &::after{
-            content: '';
-            border-right: 1px solid #CCC;
-            height: 50px;
-            margin-top: -16px;
+        @include tablet{
+            font-size: 1.25rem;
         }
+        @include mobile{
+            font-size: 1rem;
+            display: block;
+        }
+        
     }
 }

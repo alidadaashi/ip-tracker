@@ -1,3 +1,4 @@
+@import "../../responsive";
 @mixin placeholder {
     &::-webkit-input-placeholder {@content}
     &:-moz-placeholder           {@content}
@@ -14,6 +15,12 @@
         justify-content: center;
         flex-direction: column;
         padding: 1.5rem;
+        width: 100%;
+        @include mobile{
+            min-height: 310px;
+            justify-content: flex-start;
+            padding-top: 3rem;
+        }
         & form{
             display: flex;
         }
@@ -21,6 +28,10 @@
     &-title{
         color: #FFF;
         margin-bottom: 1.5rem;
+        font-size: 2rem;
+        @include mobile{
+            font-size: 1.625rem;
+        }
     }
     &-input{
         width: 555px;
@@ -35,6 +46,9 @@
         }
         &:focus, &:focus-visible{
             outline: none;
+        }
+        @include mobile {
+            width: 80vw;
         }
     }
     &-button{

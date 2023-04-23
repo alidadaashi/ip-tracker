@@ -7,3 +7,8 @@
 }
 
 @import "~leaflet/dist/leaflet.css";
+
+.leaflet-top.leaflet-left {
+    top: initial;
+    bottom: 1rem;
+}
