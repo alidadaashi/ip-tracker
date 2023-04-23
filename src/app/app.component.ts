@@ -11,9 +11,9 @@ import { CurrentIP } from './common/models/currentIP';
 export class AppComponent implements OnInit {
   title = 'IP-Checker';
   response:Result={
-    ip: "...",
-    isp: "...",
-    location: {
+    "ip": "...",
+    "isp": "...",
+    "location": {
       "city": "...",
       "country": "",
       "geonameId": 0,
@@ -39,7 +39,7 @@ export class AppComponent implements OnInit {
     if(localData !== null){
       this.response = JSON.parse(localData);
     }else{
-      this.resultService.find(inputValue).subscribe((res:any) => {
+      this.resultService.find(inputValue).subscribe((res:Result) => {
         this.response=res;
         this.saveDataToLocalStorage(res)
       })

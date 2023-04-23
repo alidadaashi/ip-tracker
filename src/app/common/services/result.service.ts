@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Result } from '../models/result';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { CurrentIP } from '../models/currentIP';
 
 const BASE_URL = 'https://wookie.codesubmit.io/ipcheck?ip='
 
@@ -17,14 +18,14 @@ export class ResultService {
     })
   };
   constructor(private http:HttpClient){}
-  find(ip:string){
-    return this.http.get(this.getUrl(ip),this.httpOptions)
+  find(ip:string):Observable<Result>{
+    return this.http.get<Result>(this.getUrl(ip),this.httpOptions)
   }
   private getUrl(ip:string):string{
     return `${BASE_URL}${ip}`
   }
-  getIPAddress(): Observable<any> {
-    return this.http.get('https://api.ipify.org?format=json');
+  getIPAddress(): Observable<CurrentIP> {
+    return this.http.get<CurrentIP>('https://api.ipify.org?format=json');
   }
   
   initialResult: Result = {
