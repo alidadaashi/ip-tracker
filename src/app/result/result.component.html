@@ -5,11 +5,21 @@
     </div>
     <div class="result-item">
         <div class="result-label"> Location </div>
-        <p class="result-text">{{response.location.city}}, {{response.location.region}}, {{response.location.postalCode}} </p>
+        <p class="result-text">
+            <span *ngIf="response.location?.city; else elseBlock">
+                {{response.location.city}}, {{response.location.region}}, {{response.location.postalCode}} 
+            </span>
+            <ng-template #elseBlock>...</ng-template>
+        </p>
     </div>
     <div class="result-item">
         <div class="result-label"> Timezone </div>
-        <p class="result-text"> UTC{{response.location.timezone}}</p>
+        <p class="result-text"> 
+            <span *ngIf="response.location?.timezone; else elseBlock">
+                {{response.location.timezone}}
+              </span>
+              <ng-template #elseBlock>...</ng-template>
+        </p>
     </div>
     <div class="result-item">
         <div class="result-label"> ISP </div>

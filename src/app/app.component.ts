@@ -11,17 +11,17 @@ import { CurrentIP } from './common/models/currentIP';
 export class AppComponent implements OnInit {
   title = 'IP-Checker';
   response:Result={
-    "ip": "...",
-    "isp": "...",
-    "location": {
-      "city": "...",
-      "country": "",
-      "geonameId": 0,
-      "lat": 37.38,
-      "lng": -122,
-      "postalCode": "...",
-      "region": "...",
-      "timezone": "..."
+    ip: "...",
+    isp: "...",
+    location: {
+      city: "",
+      country: "",
+      geonameId: 0,
+      lat: 37.38,
+      lng: -122,
+      postalCode: "",
+      region: "",
+      timezone: ""
     }
   }
   constructor(private resultService: ResultService){}
