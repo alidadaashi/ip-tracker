@@ -1,3 +1,4 @@
+// The mobile width is 375px according to instructions. The layout will change in devices with less than 768px screen width. So the 375px screens are included.
 $tablet-width: 768px;
 $desktop-width: 1024px;
 $leaflet-mobile: 600px; // Added because when screen width is less than 600px the scroller appears
