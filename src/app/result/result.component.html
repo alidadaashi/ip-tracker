@@ -6,23 +6,28 @@
     <div class="result-item">
         <div class="result-label"> Location </div>
         <p class="result-text">
-            <span *ngIf="response.location?.city; else elseBlock">
+            <span *ngIf="response.location?.city; else elseLocationBlock">
                 {{response.location.city}}, {{response.location.region}}, {{response.location.postalCode}} 
             </span>
-            <ng-template #elseBlock>...</ng-template>
+            <ng-template #elseLocationBlock>...</ng-template>
         </p>
     </div>
     <div class="result-item">
         <div class="result-label"> Timezone </div>
         <p class="result-text"> 
-            <span *ngIf="response.location?.timezone; else elseBlock">
+            <span *ngIf="response.location?.timezone; else elseTimezoneBlock">
                 {{response.location.timezone}}
               </span>
-              <ng-template #elseBlock>...</ng-template>
+              <ng-template #elseTimezoneBlock>...</ng-template>
         </p>
     </div>
     <div class="result-item">
         <div class="result-label"> ISP </div>
-        <p class="result-text"> {{response.isp}} </p>
+        <p class="result-text"> 
+            <span *ngIf="response.isp; else elseISPBlock">
+                {{response.isp}}
+            </span>
+            <ng-template #elseISPBlock>N/A</ng-template>
+        </p>
     </div>
 </div>
