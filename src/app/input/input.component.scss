@@ -29,6 +29,7 @@
         color: #FFF;
         margin-bottom: 1.5rem;
         font-size: 2rem;
+        font-weight: 700;
         @include mobile{
             font-size: 1.625rem;
         }
@@ -40,9 +41,9 @@
         border-radius: .5rem 0 0 0.5rem;
         border: none;
         font-size: 1.15rem;
-        font-weight: 100;
+        font-weight: 400;
         @include placeholder {
-            font-weight: 100;
+            font-weight: 400;
         }
         &:focus, &:focus-visible{
             outline: none;
