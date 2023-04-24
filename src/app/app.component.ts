@@ -27,7 +27,10 @@ export class AppComponent implements OnInit {
   constructor(private resultService: ResultService){}
   currentIP:string="";
   ngOnInit(): void {
+    // session storage is being used by leaflet. We need to be sure it is clear on app's initial load
     sessionStorage.clear();
+    
+    // Getting user's IP address automatically on app's initial load
     this.resultService.getIPAddress().subscribe((data: CurrentIP) => {
       this.currentIP=data.ip;
       this.checkIP(this.currentIP);
@@ -39,7 +42,7 @@ export class AppComponent implements OnInit {
     if(localData !== null){
       this.response = JSON.parse(localData);
     }else{
-      this.resultService.find(inputValue).subscribe((res:Result) => {
+      this.resultService.getIPInformation(inputValue).subscribe((res:Result) => {
         this.response=res;
         this.saveDataToLocalStorage(res)
       })

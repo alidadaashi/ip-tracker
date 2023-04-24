@@ -4,7 +4,6 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { Observable, throwError } from 'rxjs';
 import { CurrentIP } from '../models/currentIP';
 import { catchError } from 'rxjs/operators';
-import { of } from 'rxjs';
 const BASE_URL = 'https://wookie.codesubmit.io/ipcheck?ip='
 
 @Injectable({
@@ -19,7 +18,7 @@ export class ResultService {
     })
   };
   constructor(private http:HttpClient){}
-  find(ip:string):Observable<Result>{
+  getIPInformation(ip:string):Observable<Result>{
     return this.http.get<Result>(this.getUrl(ip),this.httpOptions).pipe(
       catchError(this.handleError))
   }
