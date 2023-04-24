@@ -16,7 +16,7 @@
         <div class="result-label"> Timezone </div>
         <p class="result-text"> 
             <span *ngIf="response.location?.timezone; else elseTimezoneBlock">
-                {{response.location.timezone}}
+                UTC{{response.location.timezone}}
               </span>
               <ng-template #elseTimezoneBlock>...</ng-template>
         </p>
