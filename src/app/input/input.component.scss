@@ -46,6 +46,7 @@
         }
         &:focus, &:focus-visible{
             outline: none;
+            border: 2px solid #000;
         }
         @include mobile {
             width: 80vw;
