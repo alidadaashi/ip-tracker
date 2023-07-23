@@ -62,6 +62,9 @@
           "defaultConfiguration": "production"
         },
         "serve": {
+          "options": {
+            "port": 3005
+        },
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
@@ -105,5 +108,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "f91ce47f-1961-4643-9d6b-83684239e2e8"
   }
 }
